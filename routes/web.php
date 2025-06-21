@@ -27,3 +27,11 @@ Route::get('/ortu', [SiswaController::class, 'index2' ]);
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+route::get('latihan-js', function () {
+    return view('latihan-js');
+});
+
+route::get('testing', function () {
+    return view('layouts.admin');
+});
