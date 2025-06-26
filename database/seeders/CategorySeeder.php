@@ -40,5 +40,19 @@ class categorySeeder extends Seeder
             'created_at' => now(),
             'updated_at' => now(),
         ]);
+
+        category::create([
+            'nama' => 'perawatan',
+            'slug' => 'perawatan',
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+
+        category::create([
+            'nama' => 'kesehatan',
+            'slug' => 'kesehatan',
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
     }
 }

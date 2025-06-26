@@ -15,14 +15,13 @@ return new class extends Migration
             $table->id();
             $table->string('nama')->unique();
             $table->string('slug')->unique();
-            $table->foreignId('category_ id')
+            $table->foreignId('category_id')
                 ->constrained('categories')
                 ->onDelete('cascade');
             $table->text('deskripsi')->nullable();
             $table->decimal('harga', 10, 2);
             $table->UnsignedBigInteger('stok')->default(0); // Menyimpan jumlah stok produk
             $table->string('gambar')->nullable();
-            $table->boolean('is_active')->default(true); // Menandakan apakah produk aktif atau tidak
             $table->timestamps();
         });
     }

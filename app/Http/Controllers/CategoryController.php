@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use Illuminate\Http\Request;
+use illuminate\support\str;
 
 class CategoryController extends Controller
 {
@@ -12,7 +13,8 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        //
+        $category = category::latest()->get();
+        return view('admin.category.index', compact('category'));
     }
 
     /**
@@ -20,15 +22,24 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.category.create');
     }
 
     /**
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
-    {
-        //
+    {   
+        $request->validate([
+            'nama' => 'required|string|max:255|unique:categories',
+        ]);
+
+        $category = new Category();
+        $category->nama = $request->nama;
+        $category->slug = str::slug($request->nama);
+        $category->save();
+
+        return redirect()->route('admin.category.index');
     }
 
     /**
@@ -36,7 +47,7 @@ class CategoryController extends Controller
      */
     public function show(Category $category)
     {
-        //
+        
     }
 
     /**
@@ -44,7 +55,7 @@ class CategoryController extends Controller
      */
     public function edit(Category $category)
     {
-        //
+        return view('admin.category.edit',compact('category'));
     }
 
     /**
@@ -52,7 +63,15 @@ class CategoryController extends Controller
      */
     public function update(Request $request, Category $category)
     {
-        //
+        $request->validate([
+            'nama' => 'required|string|max:255|unique:categories,id,'. $category->id,
+        ]);
+
+        $category->nama = $request->nama;
+        $category->slug = str::slug($request->nama);
+        $category->save();
+         return redirect()->route('admin.category.index');
+
     }
 
     /**
@@ -60,6 +79,8 @@ class CategoryController extends Controller
      */
     public function destroy(Category $category)
     {
-        //
+        $category->delete();
+        return redirect()->route('admin.category.index');
+
     }
 }

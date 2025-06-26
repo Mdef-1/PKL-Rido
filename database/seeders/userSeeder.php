@@ -18,24 +18,6 @@ class userSeeder extends Seeder
             'email' => 'jokowi@gmail.com',
             'password' => bcrypt('password'), // Use bcrypt for password hashing
             'is_admin' => true, // Assuming you have an is_admin field
-
         ]);
-
-        User::create([
-            'name' => 'Jane Doe',
-            'email' => 'janda@gmail.com',
-            'password' => bcrypt('password'), // Use bcrypt for password hashing
-            'is_admin' => true, // Assuming you have an is_admin field
-        
-        ]);
-
-        User::create([
-            'name' => 'John Doe',
-            'email' => 'jondoe@gmail.com',
-            'password' => bcrypt('password'), // Use bcrypt for password hashing
-            'is_admin' => true, // Assuming you have an is_admin field
-           
-        ]);
-
     }
 }

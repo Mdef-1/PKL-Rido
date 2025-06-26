@@ -20,8 +20,12 @@ class Product extends Model
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function category(): BelongsTo
+    public function category()
     {
-        return $this->belongsTo(Category::class);
+        return $this->belongsTo(Category::class, 'category_id');
+    }
+
+    public function orderProduct(){
+        return $this->hasMany(OrderProduct::class, 'product_id');
     }
 }
