@@ -73,7 +73,7 @@
                                                     </svg></a>
                                                 <figure>
                                                     <a href="#" title="Product Title">
-                                                        <img src="{{ asset('storage/' . $item->gambar) }}" class="tab-image">
+                                                        <img src="{{ asset( 'images/') }}" class="tab-image">
                                                     </a>
                                                 </figure>
                                                 <h3>{{ $item->nama }}</h3>

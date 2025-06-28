@@ -120,14 +120,14 @@
           <h4 class="d-flex justify-content-between align-items-center mb-3">
           <span class="text-primary">Keranjang Belanja</span>
           @if(isset($latestOrder) && $latestOrder)
-        <span class="badge bg-primary rounded-pill">{{ $latestOrder->orderProduct->count() }}</span>
+        <span class="badge bg-primary rounded-pill">{{ $latestOrder->orderProducts->count() ?? 0 }}</span>
       @else
         <span class="badge bg-primary rounded-pill">0</span>
       @endif
           </h4>
           <ul class="list-group mb-3">
           @if(isset($latestOrder) && $latestOrder)
-          @foreach($latestOrder->orderProduct as $item)
+          @foreach($latestOrder->orderProducts as $item)
           <li class="list-group-item d-flex justify-content-between lh-sm">
           <div>
           <h6 class="my-0">{{ $item->product->nama }}</h6>
@@ -153,7 +153,7 @@
           </ul>
 
           @if(isset($latestOrder) && $latestOrder)
-        <a href="{{ route('orders.detail', $latestOrder->id) }}" class="w-100 btn btn-primary btn-lg">
+        <a href="#" class="w-100 btn btn-primary btn-lg">
         Lihat Detail Pesanan
         </a>
       @else

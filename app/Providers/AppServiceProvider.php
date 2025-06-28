@@ -25,7 +25,7 @@ class AppServiceProvider extends ServiceProvider
         view::composer('*', function ($view) {
             $latestOrder = Order::with('orderProducts.product')
                 ->where('user_id', Auth::id())
-                ->where('status', '!=', 'completed')
+                ->where('status', 'pending')
                 ->latest()
                 ->first();
             $view->with('latestOrder', $latestOrder);

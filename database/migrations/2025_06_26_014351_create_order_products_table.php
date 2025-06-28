@@ -20,8 +20,7 @@ return new class extends Migration
                 ->constrained('products')
                 ->onDelete('cascade');
             $table->integer('quantity')->default(1);
-            $table->decimal('harga', 10, 2);
-            $table->decimal('subtotal', 10, 2);
+            $table->decimal('subtotal', 50, 2);
             $table->timestamps();
         });
     }
