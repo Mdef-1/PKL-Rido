@@ -153,11 +153,11 @@
           </ul>
 
           @if(isset($latestOrder) && $latestOrder)
-        <a href="#" class="w-100 btn btn-primary btn-lg">
+        <a href="{{ route('orders.detail', $latestOrder->id) }}" class="w-100 btn btn-primary btn-lg">
         Lihat Detail Pesanan
         </a>
       @else
-        <a href="{{ route('home') }}" class="w-100 btn btn-outline-primary btn-lg">
+        <a href="{{ route('welcome') }}" class="w-100 btn btn-outline-primary btn-lg">
         Lanjutkan Belanja
         </a>
       @endif

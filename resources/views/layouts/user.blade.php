@@ -117,9 +117,8 @@
     </div>
   </div>
 
-  @include('layouts.components.navbarUser')
-
-
+ @include('layouts.components.navbarUser')
+ 
  @yield('content')
   @include('layouts.components.footerUser')
   <script src="{{ asset('user/js/jquery-1.11.0.min.js') }}"></script>

@@ -100,12 +100,20 @@ class EcommerceController extends Controller
 
     public function myOrders()
     {
+        $orders = Order::with('orderProducts.products')
+            ->where('user_id', Auth::id())
+            ->orderBy('created_at', 'desc' )
+            ->get();
 
+        return view('user.orders.index', compact('orders'));
     }
 
     public function orderDetail($id)
     {
-
+        $order = Order::with('orderProducts.product')
+        ->where('user_id', Auth::id())
+        ->findOrFail($id);
+        return view('orders.detail', compact('order'));
     }
 
     public function updateQuantity(Request $request)

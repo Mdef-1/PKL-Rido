@@ -74,7 +74,7 @@ Route::group([
 ], function () {
     Route::post('/order', [EcommerceController::class, 'createOrder'])->name('order.create');
     Route::get('/my-orders', [EcommerceController::class, 'myOrders'])->name('orders.my');
-    Route::get('/my-orders/{id}', [EcommerceController::class, 'orderDetail'])->name('order.detail');
+    Route::get('/my-orders/{id}', [EcommerceController::class, 'orderDetail'])->name('orders.detail');
     Route::post('/order/update-quantity', [EcommerceController::class, 'updateQuantity'])->name('order.update.quantity');
     Route::post('/order/remove-item', [EcommerceController::class, 'removeItem'])->name('order.remove.item');
     Route::post('/checkout', [EcommerceController::class, 'checkout'])->name('checkout');
